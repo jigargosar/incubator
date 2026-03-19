@@ -8,19 +8,20 @@ if (-not $isAdmin) {
 }
 
 function Get-ServiceList {
-    Get-Service -ErrorAction SilentlyContinue 2>$null | ForEach-Object {
-        $status = $_.Status.ToString().PadRight(10)
-        $startType = $_.StartType.ToString().PadRight(10)
-        "$($_.Name)  |  $status  |  $startType  |  $($_.DisplayName)"
+    "Name|Display Name|Description"
+    Get-CimInstance Win32_Service | ForEach-Object {
+        $desc = if ($_.Description) { $_.Description } else { "" }
+        "$($_.Name)|$($_.DisplayName)|$desc"
     }
 }
 
 # Stage 1: pick a service
 while ($true) {
-    $selection = Get-ServiceList | fzf --header="Name  |  Status  |  Startup  |  Display Name"
+    $previewScript = Join-Path $PSScriptRoot "preview-service.ps1"
+    $selection = Get-ServiceList | column -t -s '|' | fzf --header-lines=1 --preview="pwsh -NoProfile -File `"$previewScript`" {1}" --preview-window=up:40%:wrap --bind "shift-up:preview-up,shift-down:preview-down,ctrl-f:preview-page-down,ctrl-b:preview-page-up"
     if (-not $selection) { break }
 
-    $serviceName = ($selection -split "\s+\|\s+")[0].Trim()
+    $serviceName = ($selection -split "\s{2,}")[0].Trim()
 
     # Stage 2: pick an action
     $svc = Get-Service -Name $serviceName
