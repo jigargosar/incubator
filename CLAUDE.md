@@ -12,6 +12,7 @@ Incubator monorepo for experimental projects and ideas. Projects start as spikes
 - Moving to pnpm workspace monorepo with a `packages/` subfolder and shared lockfile
 - Default stack: pnpm + TypeScript
 - Elm/Koka projects use package.json for build scripts only
+- Each project may have its own CLAUDE.md with project-specific commands and architecture
 
 ## Spikes
 
