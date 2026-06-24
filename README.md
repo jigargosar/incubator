@@ -32,12 +32,6 @@ Moving to a pnpm workspace monorepo with a `packages/` subfolder:
 - If a project truly doesn't fit the monorepo, isolate it in a
   separate top-level directory
 
-### Explore: Bit
-
-pnpm docs mention Bit as an alternative that automates monorepo
-management on top of pnpm. Worth evaluating before committing
-to plain pnpm workspaces.
-
 ## Projects
 
 - **claude-settings-editor-unofficial** — CLI to configure Claude
