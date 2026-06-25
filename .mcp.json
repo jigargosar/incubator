@@ -1,11 +1,3 @@
 {
-  "mcpServers": {
-    "bit": {
-      "command": "bit",
-      "args": [
-        "mcp-server",
-        "start"
-      ]
-    }
-  }
+  "mcpServers": {}
 }

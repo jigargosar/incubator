@@ -1,41 +1,20 @@
 # Incubator
 
-Experimental projects and ideas.
+Experimental projects and ideas — a single repo holding many small,
+independent projects while they incubate.
 
 ## Structure
 
-Currently flat — each project gets a top-level folder.
+Flat. Each project is a self-contained top-level folder with its own
+tooling (its own `package.json`, lockfile, build scripts, CLAUDE.md).
+Nothing is shared across projects — no workspace, no shared lockfile.
 
-### Root files
-
-- `CLAUDE.md` — project instructions (flat structure, markdown,
-  minimal spikes)
-- `001-claude-speeding-up-git-commit-workflow.md` — spike:
-  MCP server + AHK hotkey for fast git commits via Claude Code
-  (status: not started)
-
-### Planned: pnpm workspaces
-
-Moving to a pnpm workspace monorepo with a `packages/` subfolder:
-
-    pnpm-workspace.yaml
-    package.json
-    packages/
-      claude-settings-editor-unofficial/
-      some-other-project/
-
-- `packages/*` glob in pnpm-workspace.yaml
-- Only folders with a package.json become workspaces
-- Single lockfile shared across all projects
-- Most projects will be Node/TS; Elm/Koka projects use package.json
-  for build scripts
-- If a project truly doesn't fit the monorepo, isolate it in a
-  separate top-level directory
+Single-file spike ideas live as numbered markdown at the root
+(e.g. `001-some-idea.md`).
 
 ## Projects
 
-- **claude-settings-editor-unofficial** — CLI to configure Claude
-  Code settings files (env vars, permissions, hooks) beyond what
-  the built-in /config command supports
-- **001-claude-speeding-up-git-commit-workflow** — MCP server +
-  AHK hotkey for fast git commits (spike, not started)
+- **remotion-spike** — programmatic video exploration with Remotion
+  + Vite.
+- **windows-services-gui** — PowerShell/fzf tooling to browse and
+  preview Windows services.
