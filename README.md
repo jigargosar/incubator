@@ -1,20 +1,24 @@
 # Incubator
 
-Experimental projects and ideas — a single repo holding many small,
-independent projects while they incubate.
+A single repo where small, independent ideas are incubated. Each one
+that succeeds graduates — it migrates out into its own repo.
 
 ## Structure
 
-Flat. Each project is a self-contained top-level folder with its own
-tooling (its own `package.json`, lockfile, build scripts, CLAUDE.md).
-Nothing is shared across projects — no workspace, no shared lockfile.
+Adventures-in-progress live as self-contained folders under
+`adventures/`, each with its own tooling (its own `package.json`,
+lockfile, build scripts, CLAUDE.md). Nothing is shared across them —
+no workspace, no shared lockfile.
 
 Single-file spike ideas live as numbered markdown at the root
 (e.g. `001-some-idea.md`).
 
-## Projects
+When an adventure is ready, move its folder out of `adventures/`
+into a standalone repo.
 
-- **remotion-spike** — programmatic video exploration with Remotion
-  + Vite.
-- **windows-services-gui** — PowerShell/fzf tooling to browse and
-  preview Windows services.
+## Adventures
+
+- **adventures/remotion-spike** — programmatic video exploration
+  with Remotion + Vite.
+- **adventures/windows-services-gui** — PowerShell/fzf tooling to
+  browse and preview Windows services.
